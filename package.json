@@ -1,0 +1,27 @@
+{
+  "name": "tommorow_house",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "node-sass": "node-sass",
+    "sass": "node-sass -w -r styles/main.scss ./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JangHyunjeong/tommorow_house.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JangHyunjeong/tommorow_house/issues"
+  },
+  "homepage": "https://github.com/JangHyunjeong/tommorow_house#readme",
+  "dependencies": {
+    "node": "^19.2.0",
+    "node-sass": "^8.0.0",
+    "sass": "^1.56.2"
+  }
+}
