@@ -9,6 +9,7 @@
 
   &-thumbnail {
     @include pos-center-x;
+    bottom: 18px;
   }
 
   .thumbnail-list {
