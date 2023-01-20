@@ -1,6 +1,9 @@
 .product-tab {
   $grid-margin: $sm-margin + $gutter / 2;
 
+  position: sticky;
+  top: $gnb-height-sm + $lnb-height-sm;
+  left: 0;
   width: 100%;
   height: 40px;
   background-color: $white;
@@ -43,6 +46,7 @@
   }
 
   @include responsive(T) {
+    top: $gnb-height-md + $lnb-height-md;
     background-color: $background;
     height: 54px;
     border-bottom: 0;
