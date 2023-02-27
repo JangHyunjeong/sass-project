@@ -27,7 +27,7 @@
   .text-button {
     @include text-style(14, $blue);
     padding: #{$grid-margin};
-    font-weight: 400;
+    font-weight: 700;
   }
 
   .icon-button {
