@@ -16,6 +16,20 @@
     &:nth-child(2n) {
       margin-right: 0;
     }
+
+    a {
+      display: block;
+
+      &:active {
+        img {
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .product-card-title {
+          opacity: 0.5;
+        }
+      }
+    }
   }
 
   @include responsive(T) {
@@ -34,6 +48,18 @@
 
       &:last-child {
         display: none;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    .product-item a:hover {
+      img {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+
+      .product-card-title {
+        opacity: 0.5;
       }
     }
   }
