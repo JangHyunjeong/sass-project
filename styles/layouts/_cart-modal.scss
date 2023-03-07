@@ -31,22 +31,22 @@
       margin-bottom: 8px;
     }
   }
-}
 
-@include responsive(D) {
-  padding-right: 32px;
-  padding-left: 32px;
+  @include responsive(D) {
+    padding-right: 32px;
+    padding-left: 32px;
 
-  .cart-title {
-    @include text-style(18);
-    margin-bottom: 16px;
-  }
-
-  .button-group {
-    a,
-    button {
+    .cart-title {
       @include text-style(18);
-      height: 55px;
+      margin-bottom: 16px;
+    }
+
+    .button-group {
+      a,
+      button {
+        @include text-style(18);
+        height: 55px;
+      }
     }
   }
 }
