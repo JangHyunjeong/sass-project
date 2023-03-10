@@ -1,7 +1,7 @@
 .drawer-menu {
   $drawer-menu-item-height: 36px;
   $drawer-menu-list-padding: 20px;
-  $community-length: 8;
+  $community-length: 10;
   $store-length: 9;
   $expert-length: 5;
 
@@ -28,7 +28,7 @@
       }
     }
 
-    &.is-community {
+    &.is-expert {
       .drawer-menu-content {
         max-height: _calc-max-content-height($expert-length);
       }
