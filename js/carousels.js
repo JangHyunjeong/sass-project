@@ -19,7 +19,6 @@ const userGalleryMobile = tns({
   gutter: 4,
   edgePadding: 16,
   controls: false,
-  controlsContainer: '.user-gallery.is-mobile .user-gallery-controls',
   navContainer: '.user-gallery.is-mobile .thumbnail-list',
   loop: false,
   arrowKeys: true,
