@@ -35,11 +35,6 @@ productTabButtonList.forEach((button) => {
   button.addEventListener('click', scrollToTabpanel)
 })
 
-// 1. window.scrollY : 문서 시작점에서부터 스크롤 한 양 값
-// 2. element.getBoundingClientRect().top : viewport의 시작점에서부터 요소까지의 거리 -> scroll시 요소간의 거리가 달라지므로, element.getBoundingClientRect().top 값도 달라진다
-// 3. element.offsetTop : 문서 시작점 기준, element 까지의 거리
-// 4. element.getBoundingClientRect().top + window.scrollY  === element.offsetTop
-
 const productTabPanelIdList = [
   'product-spec',
   'product-review',
@@ -47,11 +42,6 @@ const productTabPanelIdList = [
   'product-shipment',
   'product-recommendation',
 ]
-
-// map vs forEach
-// 배열 안의 element 각각을 돈다는 점에서 같음
-// map 의 경우, 어떠한 값을 꼭 리턴해줌
-// 그리고 return된 값이 모여서 새로운 배열을 형성함
 
 const productTabPanelList = productTabPanelIdList.map((panelId) => {
   const tabPanel = document.querySelector(`#${panelId}`)
@@ -71,8 +61,41 @@ function detactTabPanelPosition() {
   })
 }
 
-// window html 요소들이 싹 다 load 된 다음에 실행
-// - 정확한 위치값을 얻기 위해, load 이후에 detactTabPanelPosition 실행
-// resize시에도 정확한 위치값을 얻기 위해 resize 이후 detactTabPanelPosition 실행
+function updateActiveTabOnScroll() {
+  const scrolledAmount =
+    window.scrollY +
+    (window.innerWidth >= 768 ? TOP_HEADER_DESKTOP + 80 : TOP_HEADER_MOBILE + 8)
+
+  let newActiveTab
+
+  if (scrolledAmount >= productTabPanelPositionMap['product-recommendation']) {
+    // 5. 추천 활성화
+    newActiveTab = productTabButtonList[4]
+  } else if (scrolledAmount >= productTabPanelPositionMap['product-shipment']) {
+    // 4. 배송/환불 활성화
+    newActiveTab = productTabButtonList[3]
+  } else if (scrolledAmount >= productTabPanelPositionMap['product-inquiry']) {
+    // 3. 문의 활성화
+    newActiveTab = productTabButtonList[2]
+  } else if (scrolledAmount >= productTabPanelPositionMap['product-review']) {
+    // 2. 리뷰 활성화
+    newActiveTab = productTabButtonList[1]
+  } else {
+    // 1. 상품정보 활성화
+    newActiveTab = productTabButtonList[0]
+  }
+
+  // 활성화된 탭버튼 변경
+  if (newActiveTab) {
+    newActiveTab = newActiveTab.parentNode
+    if (newActiveTab !== currentActiveTab) {
+      newActiveTab.classList.add('is-active')
+      currentActiveTab.classList.remove('is-active')
+      currentActiveTab = newActiveTab
+    }
+  }
+}
+
 window.addEventListener('load', detactTabPanelPosition)
 window.addEventListener('resize', detactTabPanelPosition)
+window.addEventListener('scroll', updateActiveTabOnScroll)
