@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "node-sass": "node-sass",
     "sass": "node-sass -wr --source-map true styles/main.scss ./style.css",
-    "lint:css": "stylelint --ignore-path .gitignore '**/*.css'"
+    "sass:build": "node-sass -r --source-map true styles/main.scss ./style.css",
+    "lint:css": "stylelint --ignore-path .gitignore '**/*.css'",
+    "build": "node ./scripts/build.js",
+    "deploy": "npm run sass:build && npm run build && node ./scripts/deploy.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,13 @@
     "sass": "^1.56.2"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^5.1.15",
+    "fs-extra": "^11.1.0",
+    "gh-pages": "^5.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-jpegtran": "^7.0.0",
+    "postcss": "^8.4.21",
     "stylelint": "^14.16.0",
     "stylelint-config-recess-order": "^3.0.0",
     "stylelint-config-standard": "^29.0.0",
